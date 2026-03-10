@@ -16,11 +16,11 @@ Single-page application (SPA) with client-side routing. All computation — Type
 | Library | Role |
 |---------|------|
 | Monaco Editor (`@monaco-editor/react`) | Code editor, self-hosted (no CDN) |
-| PixiJS 8 (`pixi.js`, `@pixi/react`) | 2D WebGL game rendering and sprite animations |
+| PixiJS 8 (`pixi.js`, `@pixi/react`) | 2D WebGL game rendering (planned sprite animations) |
 | esbuild-wasm | In-browser TypeScript → JavaScript transpilation |
 | Zustand 5 | Lightweight global state management |
 | Dexie.js 4 | IndexedDB wrapper for offline persistence |
-| Framer Motion 12 | UI animations and page transitions |
+| Framer Motion 12 | UI animations, page transitions, and battle character animations |
 | React Router 7 | Client-side routing |
 | Supabase JS | Leaderboard backend (anonymous auth, PostgreSQL) |
 | vite-plugin-pwa + Workbox | Service Worker and precaching |
@@ -42,6 +42,7 @@ Single-page application (SPA) with client-side routing. All computation — Type
 - Vitest with jsdom environment (default) and `@testing-library/react`
 - Use `// @vitest-environment node` directive for tests requiring Node APIs (esbuild-wasm, Worker mocks)
 - Co-located test files: `*.test.ts` / `*.test.tsx` alongside source
+- Global test setup (`src/test/setup.ts`) mocks browser-only modules (Monaco Editor, esbuild-wasm) for jsdom; per-test `vi.mock()` for test-specific overrides
 
 ## Development Environment
 

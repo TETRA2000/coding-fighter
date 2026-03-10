@@ -9,7 +9,7 @@ Layer-based organization within `src/`. UI components are grouped by function (e
 ### Components (`src/components/`)
 **Purpose**: All React components, grouped by function
 **Subgroups**:
-- `ui/` — Page-level screens (MainMenu, BattlePage, LeaderboardPage, GameCompletePage)
+- `ui/` — Page-level screens and shared UI panels (e.g., TestResultsPanel)
 - `editor/` — Monaco Editor integration and setup
 - `game/` — PixiJS game scene and animation components
 
