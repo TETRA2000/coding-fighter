@@ -8,7 +8,10 @@ A browser-based coding game where players solve programming puzzles to fight ene
 - **Sandboxed Execution** — User code runs in an isolated Web Worker with dangerous globals stripped for safety
 - **TypeScript Support** — In-browser TypeScript transpilation via esbuild-wasm (no server required)
 - **Game Progression** — 3 levels of increasing difficulty with 7 total challenges covering algorithms, strings, arrays, and debugging
-- **Animations** — 2D sprite-based battle animations powered by PixiJS
+- **Battle Animations** — Animated player and enemy characters with attack, damage, and victory states via Framer Motion
+- **Split-View Battle Screen** — Game arena on the left, code editor on the right with challenge descriptions, health bars, and countdown timer
+- **Test Results Panel** — Real-time pass/fail feedback for each test case with expected vs actual output
+- **Level Selection** — Main menu with progress tracking showing completed, current, and locked levels
 - **Leaderboard** — Global rankings backed by Supabase with offline queue and sync
 - **PWA / Offline** — Installable as a Progressive Web App with full offline gameplay support, including iOS Safari
 
@@ -17,7 +20,7 @@ A browser-based coding game where players solve programming puzzles to fight ene
 | Layer | Technology |
 |-------|-----------|
 | Framework | React 19 + TypeScript |
-| Build | Vite 6 |
+| Build | Vite 7 |
 | Editor | Monaco Editor (self-hosted, no CDN) |
 | Game Rendering | PixiJS 8 + @pixi/react |
 | Transpiler | esbuild-wasm |
@@ -67,12 +70,29 @@ src/
 
 ## How It Works
 
-1. **Choose a level** from the main menu
-2. **Read the challenge** description and constraints
-3. **Write your solution** in the Monaco Editor (JavaScript or TypeScript)
+1. **Choose a level** from the main menu — 3 levels with increasing difficulty (Easy, Medium, Hard)
+2. **Read the challenge** description, constraints, and example inputs/outputs
+3. **Write your solution** in the Monaco Editor — toggle between JavaScript and TypeScript
 4. **Submit** — your code is transpiled (if TS), then executed in a sandboxed Web Worker against test cases
-5. **Pass all tests** to deal damage to the enemy; fail and you take damage
-6. **Defeat the enemy** by solving all challenges in the level to advance
+5. **Pass all tests** to deal damage to the enemy; fail and you take damage instead
+6. **Defeat the enemy** by solving all challenges in the level, then advance to the next
+
+## Challenges
+
+| Level | Difficulty | Challenges |
+|-------|-----------|------------|
+| The Basics | Easy | Sum Two Numbers, Reverse a String |
+| Array Mastery | Medium | Find Maximum, Remove Duplicates, FizzBuzz Value |
+| Advanced Challenges | Hard | Fibonacci, Fix the Sort (debugging) |
+
+## Screenshots
+
+The game features a dark Catppuccin-inspired theme with:
+- Animated battle arena with player and enemy characters
+- Split-view layout with game scene and code editor
+- Health bars, countdown timer, and score tracking
+- Test results panel with pass/fail indicators
+- Level completion overlay with score summary
 
 ## License
 
