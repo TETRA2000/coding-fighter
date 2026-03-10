@@ -12,6 +12,9 @@ export default defineConfig({
       filename: 'sw.ts',
       registerType: 'autoUpdate',
       injectRegister: false,
+      injectManifest: {
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+      },
       manifest: {
         name: 'Coding Fighter',
         short_name: 'CodingFighter',
