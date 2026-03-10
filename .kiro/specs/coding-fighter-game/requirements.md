@@ -1,7 +1,7 @@
 # Requirements Document
 
 ## Introduction
-Coding Fighter is a browser-based game where players solve programming puzzles and fight enemies by writing correct JavaScript or TypeScript programs in an integrated Monaco Editor. The game features rich 2D/3D graphics and animations, built with React, and deployed to Vercel. Players progress through levels of increasing difficulty, using their coding skills as their primary weapon.
+Coding Fighter is a browser-based game where players solve programming puzzles and fight enemies by writing correct JavaScript or TypeScript programs in an integrated Monaco Editor. The game features rich 2D/3D graphics and animations, built with React, and deployed to Vercel. Players progress through levels of increasing difficulty, using their coding skills as their primary weapon. The game includes a leaderboard for competitive ranking and supports offline play as a Progressive Web App (PWA), including iOS devices.
 
 ## Requirements
 
@@ -77,3 +77,27 @@ Coding Fighter is a browser-based game where players solve programming puzzles a
 3. The Game shall load and render the initial screen within 5 seconds on a standard broadband connection.
 4. The Game shall function entirely client-side without requiring a backend server for core gameplay.
 5. The Game shall bundle all required assets (graphics, editor, game logic) for static deployment.
+
+### Requirement 8: Leaderboard
+**Objective:** As a player, I want to see how I rank against other players, so that I feel motivated to improve and compete.
+
+#### Acceptance Criteria
+1. The Game shall display a leaderboard screen showing player rankings sorted by score.
+2. The Game shall calculate a player's score based on levels completed, time taken, and number of attempts.
+3. When a player completes a level, the Game shall update the player's total score and leaderboard position.
+4. The Game shall display each leaderboard entry with the player's name, score, and rank.
+5. The Game shall allow the player to set a display name for their leaderboard entry.
+6. The Game shall persist leaderboard data so that rankings survive page reloads and browser restarts.
+7. While the device is offline, the Game shall store score updates locally and sync to the leaderboard when connectivity is restored.
+
+### Requirement 9: Offline Support and PWA
+**Objective:** As a player, I want to play the game offline and install it on my device, so that I can practice coding challenges anywhere without an internet connection.
+
+#### Acceptance Criteria
+1. The Game shall be installable as a Progressive Web App (PWA) on supported platforms.
+2. The Game shall register a Service Worker that caches all required assets for offline gameplay.
+3. While the device is offline, the Game shall allow the player to access previously loaded levels and play challenges.
+4. The Game shall provide a valid Web App Manifest with appropriate icons, theme color, and display mode for home screen installation.
+5. The Game shall function as a PWA on iOS Safari, including home screen installation and offline asset caching.
+6. When the application is launched offline, the Game shall display a visual indicator showing offline status.
+7. When connectivity is restored after offline play, the Game shall sync locally stored progress and scores.
