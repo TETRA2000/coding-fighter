@@ -1,4 +1,5 @@
 import * as esbuild from 'esbuild-wasm'
+import esbuildWasmUrl from 'esbuild-wasm/esbuild.wasm?url'
 import type { TranspileResult } from '../../types/game'
 
 let initialized = false
@@ -10,7 +11,7 @@ export class TSTranspiler {
     if (isBrowser) {
       await esbuild.initialize({
         worker: true,
-        wasmURL: '/esbuild.wasm',
+        wasmURL: esbuildWasmUrl,
       })
     } else {
       await esbuild.initialize({})

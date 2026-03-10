@@ -13,7 +13,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: false,
       injectManifest: {
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
       },
       manifest: {
         name: 'Coding Fighter',
