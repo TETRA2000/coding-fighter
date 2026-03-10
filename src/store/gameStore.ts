@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { ProgressState, ChallengeResult, ScoreUpdate, LevelConfig } from '../types/game'
+import type { ProgressState } from '../types/game'
 
 interface GameStore {
   progress: ProgressState

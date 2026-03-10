@@ -46,7 +46,6 @@ vi.stubGlobal('Blob', class {
   constructor(_parts: unknown[], _options?: unknown) {}
 })
 
-const OriginalURL = globalThis.URL
 globalThis.URL.createObjectURL = () => 'blob:mock'
 globalThis.URL.revokeObjectURL = () => {}
 
@@ -100,7 +99,7 @@ describe('CodeRunner', () => {
       timeLimitMs: 5000,
     })
 
-    await new Promise((r) => setTimeout(r, 300))
+    await new Promise((r) => setTimeout(r, 2000))
     lastWorker!._simulateMessage({
       type: 'result',
       testResults: [

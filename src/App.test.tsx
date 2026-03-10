@@ -1,5 +1,12 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+
+// Mock esbuild-wasm for jsdom (imported transitively by BattlePage -> codeRunner)
+vi.mock('esbuild-wasm', () => ({
+  initialize: vi.fn(),
+  transform: vi.fn().mockResolvedValue({ code: '' }),
+}))
+
 import App from './App'
 
 describe('App', () => {
@@ -8,12 +15,12 @@ describe('App', () => {
     expect(screen.getByText('Coding Fighter')).toBeInTheDocument()
   })
 
-  it('renders Start Game link', () => {
+  it('renders level selection', () => {
     render(<App />)
-    expect(screen.getByText('Start Game')).toBeInTheDocument()
+    expect(screen.getByText('The Basics')).toBeInTheDocument()
   })
 
-  it('renders Leaderboard link', () => {
+  it('renders Leaderboard button', () => {
     render(<App />)
     expect(screen.getByText('Leaderboard')).toBeInTheDocument()
   })
